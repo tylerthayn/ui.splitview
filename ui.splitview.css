@@ -1,0 +1,61 @@
+.Ui.SplitView {
+	overflow: hidden;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.Ui.SplitView[data-direction=horizontal] {
+	flex-direction: row;
+}
+
+.Ui.SplitView[data-direction=vertical] {
+	flex-direction: column;
+}
+
+.Ui.SplitView > * {
+	box-sizing: border-box;
+}
+
+.Ui.SplitView[data-direction=horizontal] > * {
+	height: 100%;
+}
+
+.Ui.SplitView[data-direction=vertical] > * {
+	width: 100%;
+}
+
+.Ui.SplitView > :nth-of-type(1) {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.Ui.SplitView > :nth-of-type(2) {
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.Ui.SplitView .ui-resizable-s {
+	height: 9px !important;
+	bottom: -3px !important;
+	width: 100%;
+	background: rgb(2,0,36);
+	background: -webkit-gradient(linear, 100% 0, 0 0, from(rgba(255,255,255,0)), color-stop(0.5, rgba(0,0,0,1)), to(rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+	background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+}
+
+.Ui.SplitView .ui-resizable-e {
+		height: 100%;
+		width: 12px !important;
+		right: -5px !important;
+		background: rgb(2,0,36);
+		background: -webkit-gradient(linear, 100% 0, 0 0, from(rgba(255,255,255,0)), color-stop(0.5, rgba(0,0,0,1)), to(rgba(255,255,255,0)));
+		background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+		background: -moz-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+		background: -o-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%)	;
+	}
+}
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>@tyler.thayn/ui.splitview Horizontal Example</title>
+		<link rel="stylesheet" href="Examples.css">
+		<link rel="stylesheet" href="../node_modules/jqueryui/jquery-ui.css">
+
+		<link rel="stylesheet" href="../ui.splitview.css">
+		<script class="Main" src="../node_modules/requirejs/require.js"></script>
+		<script src="Examples.js"></script>
+	</head>
+	<body class="TTS App" data-name="App">
+		<style class="Example">                            
+			.Example {width: 300px;height: 300px;border: 2px solid black;}
+			.Example > :first-child {background-color: yellow;}
+			.Example > :last-child {background-color: red;}
+		</style>
+
+		<script>
+			require.config({
+				baseUrl: '../',
+				paths: {
+					'jquery': 'node_modules/jquery/dist/jquery',
+					'jquery-ui': 'node_modules/jqueryui/jquery-ui'
+				}
+			})
+			require(['jquery', 'ui.splitview'], ($) => {
+				$(() => {
+					$('.Ui.SplitView').SplitView({
+						resize: (event, value) => {
+							$('.Value').val(value)
+						},
+						create: () => {
+							$('.Direction').val($('.Ui.SplitView').SplitView('option', 'direction'))
+							$('.Min').val($('.Ui.SplitView').SplitView('option', 'min'))
+							$('.Max').val($('.Ui.SplitView').SplitView('option', 'max'))
+						},
+						limits: (event, limits) => {
+							$('.Min').val(limits.min)
+							$('.Max').val(limits.max)
+						}
+					})
+
+					$('.Value').val($('.Ui.SplitView').SplitView('option', 'value'))
+					$('.Direction').on('change', (...args) => {
+						$('.Ui.SplitView').SplitView('option', 'direction', $('.Direction').val())
+					})
+					$('.Min').on('change', (...args) => {
+						$('.Ui.SplitView').SplitView('option', 'min', $('.Min').val())
+					})
+					$('.Max').on('change', (...args) => {
+						$('.Ui.SplitView').SplitView('option', 'max', $('.Max').val())
+					})
+					$('.Value').on('change', (...args) => {
+						$('.Ui.SplitView').SplitView('option', 'value', $('.Value').val())
+					})
+
+					$('.Toggle').on('click', (...args) => {
+						$('.Ui.SplitView').SplitView('Toggle')
+					})
+
+	
+				})
+			})
+		</script>
+
+		<div class="Example Ui SplitView" data-direction="horizontal" data-min="25" data-max="80" data-value="50">
+			<div></div>
+			<div></div>
+		</div>
+		<div class="Controls">
+			<div>
+				<label for="Direction" class="form-label">Direction</label>
+				<select class="form-control Direction" id="Direction">
+					<option value="horizontal">Horizontal</option>
+					<option selected value="vertical">Vertical</option>
+				</select>
+			</div>
+			<div>
+				<label for="Min" class="form-label">Min (%)</label>
+				<input type="number" class="form-control Min" id="Min">
+			</div>
+			<div>
+				<label for="Max" class="form-label">Max (%)</label>
+				<input type="number" class="form-control Max" id="Max">
+			</div>
+			<div>
+				<label for="Value" class="form-label">Value (%)</label>
+				<input type="number" class="form-control Value" id="Value">
+			</div>
+			<div class="Buttons">
+				<input type="button" class="Toggle btn" value="Toggle">
+			</div>
+		</div>
+
+		
+
+	</body>
+</html>
+
+
+
+
+
+
